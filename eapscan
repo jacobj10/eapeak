@@ -265,7 +265,6 @@ def check_ap_connection(interface, bssid, essid, quite=True, verbose=False):
 	return True
 
 def main():
-	start=time.time()
 	parser = argparse.ArgumentParser(description='EAPScan: Actively Enumerate 802.1x Wireless Networks', conflict_handler='resolve')
 	parser.add_argument('-e', '--essid', dest='essid', action='store', required=True, default='', help='target ESSID')
 	parser.add_argument('-b', '--bssid', dest='bssid', action='store', required=True, default='', help='target BSSID')
@@ -347,8 +346,7 @@ def main():
 		eapeakParser.KnownNetworks[options.essid] = newNetwork
 		eapeakParser.BSSIDToSSIDMap[options.bssid] = options.essid
 		eapeakParser.exportXML()
-	end=time.time()
-	print '\n' + str(end-start) + '\n'
+		
 	return 0
 
 if __name__ == '__main__':
